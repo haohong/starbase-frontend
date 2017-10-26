@@ -1,0 +1,17 @@
+mat-card {
+  max-width: 500px;
+
+  h2 {
+    text-align: left;
+    color: #333;
+  }
+
+  hr {
+    margin-bottom: 50px;
+  }
+
+  mat-form-field {
+    width: 300px;
+  }
+}
+
