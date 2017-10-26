@@ -3,10 +3,12 @@ import { Routes, RouterModule } from '@angular/router';
 
 import { HomeComponent } from './home/home.component'
 import { TransactionsComponent } from './transactions/transactions.component'
+import { NotFoundComponent } from './not-found/not-found.component'
 
 const routes: Routes = [
   { path: '', component: HomeComponent },
-  { path: 'transactions/:address', component: TransactionsComponent }
+  { path: 'transactions/:address', component: TransactionsComponent },
+  { path: '**', component: NotFoundComponent }
 ];
 
 @NgModule({
