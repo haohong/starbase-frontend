@@ -1,4 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
+
+import { Account } from '../shared/models/account';
 
 @Component({
   selector: 'stb-home',
@@ -9,13 +12,15 @@ export class HomeComponent implements OnInit {
 
   title = 'Home View';
 
-  model = {
-    address: ''
-  };
+  model = new Account('');
 
-  constructor() { }
+  constructor(private router: Router) { }
 
   ngOnInit() {
+  }
+
+  onSubmit() {
+    this.router.navigate(['transactions', this.model.address]);
   }
 
 }
