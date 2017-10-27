@@ -17,6 +17,12 @@ mat-toolbar-row {
   justify-content: center;
 }
 
+mat-nav-list {
+  .mat-list-item-content {
+    justify-content: center;
+  }
+}
+
 .copyright {
   position: fixed;
   bottom: 20px;

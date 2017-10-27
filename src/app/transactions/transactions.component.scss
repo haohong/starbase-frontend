@@ -21,6 +21,28 @@ mat-card {
       margin-bottom: 20px;
     }
 
-    .transactions {}
+    .transactions {
+      mat-table {
+        max-height: 300px;
+        overflow-y: auto;
+
+        .mat-column-timeStamp {
+          flex: 0 0 150px;
+        }
+
+        .mat-column-from,
+        .mat-column-to {
+          margin: 0 20px;
+
+          white-space: nowrap;
+          overflow: hidden;
+          text-overflow: ellipsis;
+        }
+
+        .mat-column-value {
+          flex: 0 0 100px;
+        }
+      }
+    }
   }
 }

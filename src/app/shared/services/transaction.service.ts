@@ -23,12 +23,11 @@ export class TransactionService {
     this.ws = Observable.webSocket(environment.etherscan.websocketUrl);
 
     const hot = this.ws.publish();
+    hot.connect();
 
     this.frames = hot as Observable<any>;
-    this.subscriptions = hot.filter(response => response.event === 'subscribe-txlist');
-    this.transctions = hot.filter(response => response.event === 'txlist');
-
-    hot.connect();
+    this.subscriptions = hot.filter(frame => frame.event === 'subscribe-txlist');
+    this.transctions = hot.filter(frame => frame.event === 'txlist');
 
     const timer = setInterval(() => {
       this.ping();

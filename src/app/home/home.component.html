@@ -27,7 +27,7 @@
     </form>
 
     <div class="bookmarks">
-      <h4>Bookmarked addresses</h4>
+      <h3>Bookmarked addresses</h3>
 
       <mat-nav-list>
         <a mat-list-item [routerLink]="['transactions', account.address]" *ngFor="let account of bookmarkedAccounts"> {{ account.address }} </a>
