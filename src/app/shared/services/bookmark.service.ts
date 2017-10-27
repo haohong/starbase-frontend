@@ -1,23 +1,56 @@
 import { Injectable } from '@angular/core';
 
+import { environment } from '../../../environments/environment';
 import { Account } from '../models/account';
 
 @Injectable()
 export class BookmarkService {
 
-  private bookmarkedAccounts: Account[] = [];
+  private accounts: Account[] = [];
 
   constructor() { }
 
   public loadBookmarkedAccounts() {
-    this.bookmarkedAccounts = [
-      { address: '0xD71984e4455186a97A75E0389b42d37393A3B0b2' },
-      { address: '0xE94b04a0FeD112f3664e45adb2B8915693dD5FF3' }
-    ];
+    this.accounts = (JSON.parse(
+      localStorage.getItem(this.getLocalStorageKey('bookmarkedAccounts'))
+    ) || []) as Account[];
   }
 
   public getBookmarkedAccounts() {
-    return this.bookmarkedAccounts;
+    return this.accounts;
+  }
+
+  public isBookmarked(account: Account) {
+    return this.accounts.findIndex((acc: Account) => acc.address === account.address) > -1;
+  }
+
+  public bookmarkAccount(account: Account) {
+    if (this.isBookmarked(account)) {
+      return;
+    }
+
+    this.accounts.push(account);
+    this.saveBookmarkedAccounts();
+  }
+
+  public unbookmarkAccount(account: Account) {
+    let index = this.accounts.findIndex((acc: Account) => acc.address === account.address);
+
+    if (index > -1) {
+      this.accounts.splice(index, 1);
+      this.saveBookmarkedAccounts();
+    }
+  }
+
+  private saveBookmarkedAccounts() {
+    localStorage.setItem(
+      this.getLocalStorageKey('bookmarkedAccounts'),
+      JSON.stringify(this.accounts)
+    );
+  }
+
+  private getLocalStorageKey(key) {
+    return `${environment.localstorage.prefix}_${key}`;
   }
 
 }

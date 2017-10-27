@@ -11,8 +11,10 @@
 
   <mat-card-content>
     <div class="address-bar">
-      <mat-icon>star_outline</mat-icon>
-      <h3>{{address}}</h3>
+      <button mat-icon-button (click)="toggleBookmark()">
+        <mat-icon aria-label="Bookmark">{{ bookmarked ? 'star' : 'star_outline' }}</mat-icon>
+      </button>
+      <h3>{{account.address}}</h3>
     </div>
 
     <div class="qr-code">
