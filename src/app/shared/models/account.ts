@@ -1,5 +1,3 @@
-export class Account {
-  constructor(
-    public address: string
-  ) { }
+export interface Account {
+  address: string;
 }
