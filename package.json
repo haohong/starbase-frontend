@@ -9,7 +9,8 @@
     "build": "ng build",
     "test": "ng test",
     "lint": "ng lint",
-    "e2e": "ng e2e"
+    "e2e": "ng e2e",
+    "postinstall": "ng build --aot --env=prod"
   },
   "private": true,
   "dependencies": {
@@ -52,5 +53,9 @@
     "tslint": "~5.7.0",
     "typescript": "~2.3.3"
   },
-  "devDependencies": {}
+  "devDependencies": {},
+  "engines": {
+    "node": "6.11.x",
+    "npm": "5.5.x"
+  }
 }
