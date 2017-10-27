@@ -2,6 +2,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { QRCodeModule } from 'angular2-qrcode';
 
 import { MaterialModule } from './material/material.module';
 import { AppRoutingModule } from './app-routing.module';
@@ -24,6 +25,7 @@ import { BookmarkService } from './shared/services/bookmark.service';
     BrowserModule,
     FormsModule,
     BrowserAnimationsModule,
+    QRCodeModule,
     MaterialModule,
     AppRoutingModule
   ],
