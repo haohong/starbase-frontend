@@ -13,6 +13,7 @@ import { TransactionsComponent } from './transactions/transactions.component';
 import { NotFoundComponent } from './not-found/not-found.component';
 
 import { BookmarkService } from './shared/services/bookmark.service';
+import { TransactionService } from './shared/services/transaction.service';
 
 @NgModule({
   declarations: [
@@ -29,7 +30,7 @@ import { BookmarkService } from './shared/services/bookmark.service';
     MaterialModule,
     AppRoutingModule
   ],
-  providers: [BookmarkService],
+  providers: [BookmarkService, TransactionService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
