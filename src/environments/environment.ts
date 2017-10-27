@@ -7,5 +7,9 @@ export const environment = {
   production: false,
   localstorage: {
     prefix: 'stb'
+  },
+  etherscan: {
+    websocketUrl: 'wss://socket.etherscan.io/wshandler',
+    pingInterval: 20
   }
 };

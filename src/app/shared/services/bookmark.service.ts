@@ -21,7 +21,9 @@ export class BookmarkService {
   }
 
   public isBookmarked(account: Account) {
-    return this.accounts.findIndex((acc: Account) => acc.address === account.address) > -1;
+    return this.accounts.findIndex(
+      (acc: Account) => acc.address.toLowerCase() === account.address.toLowerCase()
+    ) > -1;
   }
 
   public bookmarkAccount(account: Account) {
@@ -34,7 +36,9 @@ export class BookmarkService {
   }
 
   public unbookmarkAccount(account: Account) {
-    let index = this.accounts.findIndex((acc: Account) => acc.address === account.address);
+    let index = this.accounts.findIndex(
+      (acc: Account) => acc.address.toLowerCase() === account.address.toLowerCase()
+    );
 
     if (index > -1) {
       this.accounts.splice(index, 1);

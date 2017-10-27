@@ -23,6 +23,33 @@
 
     <div class="transactions">
       <h3>Incoming Transactions</h3>
+
+      <mat-table #table [dataSource]="dataSource">
+
+        <ng-container matColumnDef="timeStamp">
+          <mat-header-cell *matHeaderCellDef> Time </mat-header-cell>
+          <mat-cell *matCellDef="let element"> {{element.timeStamp | amFromUnix | amDateFormat: 'YYYY-MM-DD HH:mm'}} </mat-cell>
+        </ng-container>
+
+        <ng-container matColumnDef="from">
+          <mat-header-cell *matHeaderCellDef> From </mat-header-cell>
+          <mat-cell *matCellDef="let element"> {{element.from}} </mat-cell>
+        </ng-container>
+
+        <ng-container matColumnDef="to">
+          <mat-header-cell *matHeaderCellDef> To </mat-header-cell>
+          <mat-cell *matCellDef="let element"> {{element.to}} </mat-cell>
+        </ng-container>
+
+        <ng-container matColumnDef="value">
+          <mat-header-cell *matHeaderCellDef> Value </mat-header-cell>
+          <mat-cell *matCellDef="let element"> {{element.value / 10}} Ether </mat-cell>
+        </ng-container>
+
+        <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+        <mat-row *matRowDef="let row; columns: displayedColumns;"></mat-row>
+      </mat-table>
+
     </div>
   </mat-card-content>
 

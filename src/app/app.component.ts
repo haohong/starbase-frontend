@@ -8,7 +8,7 @@ import { BookmarkService } from './shared/services/bookmark.service';
   styleUrls: ['./app.component.scss']
 })
 export class AppComponent implements OnInit {
-  title = 'Welcome To Starbase!';
+  title = 'Ethereum Transactions Finder';
 
   constructor(private bookmarkService: BookmarkService) {}
 
