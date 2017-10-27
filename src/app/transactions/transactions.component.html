@@ -43,7 +43,7 @@
 
         <ng-container matColumnDef="value">
           <mat-header-cell *matHeaderCellDef> Value </mat-header-cell>
-          <mat-cell *matCellDef="let element"> {{element.value / 10}} Ether </mat-cell>
+          <mat-cell *matCellDef="let element"> {{element.value / Math.pow(10, 18) }} Ether </mat-cell>
         </ng-container>
 
         <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
