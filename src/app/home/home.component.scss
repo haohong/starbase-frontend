@@ -1,17 +1,16 @@
 mat-card {
   max-width: 500px;
 
-  h2 {
-    text-align: left;
-    color: #333;
-  }
+  md-card-header {}
 
   hr {
     margin-bottom: 50px;
   }
 
-  mat-form-field {
-    width: 300px;
+  mat-card-content {
+    mat-form-field {
+      width: 300px;
+    }
   }
-}
 
+}

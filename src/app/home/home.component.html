@@ -1,32 +1,37 @@
 <mat-card>
-  <h2>{{title}}</h2>
+  <mat-card-header>
+    <mat-card-title>
+      <h2>{{title}}</h2>
+    </mat-card-title>
+  </mat-card-header>
 
   <hr />
 
-  <p>Input an Ethereum address to watch transactions!</p>
+  <mat-card-content>
+    <p>Input an Ethereum address to watch transactions!</p>
 
-  <form (ngSubmit)="onSubmit()" #addressForm="ngForm">
-    <mat-form-field>
-      <input
-        matInput
-        placeholder="Enter Ethereum address"
-        dividerColor="accent"
-        required
-        minlength="42"
-        [(ngModel)]="model.address"
-        name="address"
-        #address="ngModel">
-    </mat-form-field>
+    <form (ngSubmit)="onSubmit()" #addressForm="ngForm">
+      <mat-form-field>
+        <input
+          matInput
+          placeholder="Enter Ethereum address"
+          dividerColor="accent"
+          required
+          minlength="42"
+          [(ngModel)]="model.address"
+          name="address"
+          #address="ngModel">
+      </mat-form-field>
 
-    <button mat-raised-button color="primary" [disabled]="!addressForm.form.valid">Go</button>
-  </form>
+      <button mat-raised-button color="primary" [disabled]="!addressForm.form.valid">Go</button>
+    </form>
 
-  <div class="bookmarks">
-    <h4>Bookmarked addresses</h4>
+    <div class="bookmarks">
+      <h4>Bookmarked addresses</h4>
 
-    <mat-nav-list>
-      <a mat-list-item [routerLink]="['transactions', account.address]" *ngFor="let account of bookmarkedAccounts"> {{ account.address }} </a>
-    </mat-nav-list>
-  </div>
-
+      <mat-nav-list>
+        <a mat-list-item [routerLink]="['transactions', account.address]" *ngFor="let account of bookmarkedAccounts"> {{ account.address }} </a>
+      </mat-nav-list>
+    </div>
+  </mat-card-content>
 </mat-card>
