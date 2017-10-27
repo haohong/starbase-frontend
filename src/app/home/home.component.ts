@@ -25,7 +25,7 @@ export class HomeComponent implements OnInit {
   }
 
   loadBookmarkedAccounts() {
-    this.bookmarkedAccounts = this.bookmarkService.loadBookmarkedAccounts();
+    this.bookmarkedAccounts = this.bookmarkService.getBookmarkedAccounts();
   }
 
   onSubmit() {
